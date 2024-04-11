@@ -1,0 +1,83 @@
+body {
+    font-family: "JetBrains Mono,Consolas, 'Courier New', monospace";
+
+    @media (min-width: 1350px) {
+
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl {
+            max-width: 1807px;
+        }
+    }
+}
+
+.app-container {
+    .header-container {
+        .navbar {
+            z-index: 1;
+            padding-top: 20px;
+            background-color: rgba(0, 0, 0, 0) !important;
+
+            .nav-link {
+                &.active {
+                    color: #61dafb; // viet theo kieu scss -> & : active ngang hàng với nav-link -> kp con của nav-link
+                }
+            }
+        }
+    }
+
+    .homepage-content {
+        position: relative;
+        padding: 0 100px;
+        margin-top: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 50%;
+
+        .title-1 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+    }
+
+}
+
+video {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.btn-login {
+    cursor: pointer;
+    padding: 8px 0px;
+    border-radius: 10px;
+    border-style: none;
+    background: transparent;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.btn-signup {
+    padding: 8px 16px;
+    border-radius: 10px;
+    background: rgb(25, 25, 25);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(25, 25, 25);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: 500;
+
+    &:hover {
+        background: rgb(53, 52, 52);
+        border-color: rgb(53, 52, 52);
+    }
+}

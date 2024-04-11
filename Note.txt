@@ -1,0 +1,14 @@
+Thư viện: React bootstrap, React router, Sass
+// Điều hướng trang với link
+Index.js: 
++ config component app,
++ create path cho Outlet (Outlet load cac component co link path)
++ config react router: render component cần điều hướng -> dùng <Link/> điều hướng người dùng tới đường link của component (bản chất nó là href eg:'/user')
++ index: k tìm thấy route nào (path trùng với th cha là app) mặc định lấy th index
+//Nested Routes: lồng nhau -> component cha (app,header) lồng component con (user,admin...) trong index.js 
++ Outlet: mỗi lần vào đường link đc cấu hình, component con được gọi render lại -> Outlet bọc component con được điều hướng
++ còn lại k có link sẽ cố định dùng chung
+
+
+install lib: npm install --save-exact react-router-dom@6.22.3 bootstrap@5.3.3 react-bootstrap@2.10.2 sass@1.74.1 react-pro-sidebar@0.7.1 react-icons@4.4.0
+axios@0.27.2 react-toastify@9.0.7 react-paginate@8.1.3
