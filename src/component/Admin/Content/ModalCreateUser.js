@@ -2,14 +2,24 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { BsImage } from "react-icons/bs";
+import { toast } from 'react-toastify';
+import { postCreateNewUser } from '../../../services/apiService';
 
 function ModelCreateUser(props) {
     const { show, setShow } = props
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false);
+        setEmail("");
+        setPassword("");
+        setUsername("");
+        setRole("USER");
+        setImage("");
+        setPreviewImage("")
+    };
 
     const [email, setEmail] = useState('')
-    const [passsword, setPasssword] = useState('')
+    const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
     const [role, setRole] = useState('USER')
     const [image, setImage] = useState('')
@@ -24,8 +34,38 @@ function ModelCreateUser(props) {
             setPreviewImage('')
         }
     }
-    const handleSubmitCreateUser = () => {
 
+    const validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
+
+    const handleSubmitCreateUser = async () => {
+        //validate
+        const isValidEmail = validateEmail(email)
+        if (!isValidEmail) {
+            toast.error('Invalid Email')
+            return
+        }
+
+        if (!password) {
+            toast.error('Invalid Password')
+            return;
+        }
+        // response phản hồi API
+        let data = await postCreateNewUser(email, password, username, role, image)
+
+        console.log("component res: ", data);
+        if (data && data.EC === 0) {
+            toast.success(data.EM)
+            handleClose()
+        }
+        if (data && data.EC !== 0) {
+            toast.error(data.EM)
+        }
     }
     return (
         <>
@@ -50,8 +90,8 @@ function ModelCreateUser(props) {
                             <label className="form-label">Password</label>
                             <input type="password"
                                 className="form-control"
-                                value={passsword}
-                                onChange={(event) => setPasssword(event.target.value)} />
+                                value={password}
+                                onChange={(event) => setPassword(event.target.value)} />
                         </div>
 
                         <div className="col-md-6">
@@ -93,7 +133,7 @@ function ModelCreateUser(props) {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleSubmitCreateUser}>
+                    <Button variant="primary" onClick={() => handleSubmitCreateUser()}>
                         Save
                     </Button>
                 </Modal.Footer>
