@@ -6,7 +6,7 @@
         font-size: 20px;
     }
 
-    .user-content {
+    .users-content {
         .btn-add-new {
             margin: 15px 0;
         }
@@ -45,4 +45,26 @@
             background-color: rgb(9, 126, 223);
         }
     }
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+
+    .image-detail {
+        .rev-img-preview {
+            padding: 5px;
+            border: 1px dashed #000000;
+            border-radius: 50%;
+            object-fit: cover;
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    .user-details {
+        font-weight: 500;
+        padding: 0 20px;
+    }
+
 }
