@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import { deleteUser } from '../../../services/apiService';
 import { toast } from 'react-toastify';
 function ModalDeleteUser(props) {
-    const { show, setShow, dataDelete } = props
+    const { show, setShow, dataDelete, setCurrentPage, fetListUsersWithPaginate } = props
 
     const handleClose = () => setShow(false);
     const handDelete = async () => {
@@ -14,7 +14,9 @@ function ModalDeleteUser(props) {
             toast.success(data.EM)
             handleClose()
             // gọi lại hàm call API
-            await props.fetListUsers();
+            //await props.fetListUsers();
+            setCurrentPage(1) // set về page 1 -> so sánh page hiện tại với 1 -> table re-render currentPage
+            await fetListUsersWithPaginate(1); // lấy data page 1
         }
         if (data && data.EC !== 0) {
             toast.error(data.EM)

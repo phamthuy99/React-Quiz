@@ -7,7 +7,7 @@ import { putUpdateUser } from '../../../services/apiService';
 import _ from 'lodash';
 
 function ModalUpdateUser(props) {
-    const { show, setShow, dataUpdate } = props
+    const { show, setShow, dataUpdate, currentPage, fetListUsersWithPaginate } = props
 
     const handleClose = () => {
         setShow(false);
@@ -49,7 +49,7 @@ function ModalUpdateUser(props) {
             toast.success(data.EM)
             handleClose()
             // gọi lại hàm call API
-            await props.fetListUsers();
+            await fetListUsersWithPaginate(currentPage);
         }
         if (data && data.EC !== 0) {
             toast.error(data.EM)

@@ -15,7 +15,7 @@ function Admin() {
             </div>
             <div className="admind-content">
                 <div className="admin-header">
-                    <FaBars style={{ cursor: "pointer" }} onClick={() => setCollapsed(!collapsed)} />
+                    <FaBars style={{ cursor: "pointer", width: '24px', height: '24px' }} onClick={() => setCollapsed(!collapsed)} />
 
                 </div>
                 <div className="admin-name">

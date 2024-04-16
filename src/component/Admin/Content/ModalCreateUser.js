@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { postCreateNewUser } from '../../../services/apiService';
 
 function ModalCreateUser(props) {
-    const { show, setShow } = props
+    const { show, setShow, setCurrentPage, fetListUsersWithPaginate } = props
 
     const handleClose = () => {
         setShow(false);
@@ -62,7 +62,9 @@ function ModalCreateUser(props) {
             toast.success(data.EM)
             handleClose()
             // gọi lại hàm call API
-            await props.fetListUsers();
+            //await props.fetListUsers();
+            setCurrentPage(1)
+            await fetListUsersWithPaginate(1);
         }
         if (data && data.EC !== 0) {
             toast.error(data.EM)
