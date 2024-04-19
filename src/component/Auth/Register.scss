@@ -1,0 +1,85 @@
+.register-container {
+    .header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 45px;
+        margin-top: 10px;
+        font-size: 14px;
+        padding: 0 100px;
+
+        button {
+            border: 1px solid currentcolor;
+            border-radius: 2px;
+            color: rgb(38, 38, 39);
+            background-color: rgb(255, 255, 255);
+            height: 28px;
+            padding: 0 12px 0;
+            width: auto;
+            font-size: 12px;
+            margin: 0 5px;
+            //line-height: 14px;
+        }
+    }
+
+    .title-main {
+        font-size: 25px;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .title-sub {
+        font-size: 20px;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .content-form {
+        input::placeholder {
+            color: #cfc4c8;
+        }
+
+        .form-input {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .ic-eyes {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .form-control {
+            border-radius: 3px;
+        }
+
+        button {
+            margin: 20px 0;
+            width: 100%;
+            line-height: 28px !important;
+            height: 40px !important;
+            border: none !important;
+            background: #262627;
+            color: #fff;
+            border-radius: 3px;
+
+        }
+
+        .form-check {
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        .btn-back-home {
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: underline;
+            color: #777;
+            cursor: pointer;
+        }
+    }
+
+}

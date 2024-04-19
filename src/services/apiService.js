@@ -34,12 +34,21 @@ const deleteUser = (userId) => {
 const getUserWithPaginate = (page, limit) => {
     return axios.get(`api/v1/participant?page=${page}&limit=${limit}`)
 }
-
+//login user by urlencoded
+const postLogin = (email, password) => {
+    return axios.post('api/v1/login', { email, password })
+}
+//register user by urlencoded
+const postRegister = (username, email, password) => {
+    return axios.post('api/v1/register', { username, email, password })
+}
 
 export {
     postCreateNewUser,
     getAllUsers,
     putUpdateUser,
     deleteUser,
-    getUserWithPaginate
+    getUserWithPaginate,
+    postLogin,
+    postRegister
 }

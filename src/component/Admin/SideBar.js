@@ -9,16 +9,17 @@ import {
     SidebarContent,
 } from 'react-pro-sidebar';
 
-import { FaGem, FaGithub } from 'react-icons/fa';
+import { FaGem, FaHome } from 'react-icons/fa';
 //import sidebarBg from '../../assets/bg2.jpg';
 import { DiReact } from 'react-icons/di'
 import { MdDashboard } from 'react-icons/md'
 import './SideBar.scss'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SideBar = (props) => {
     const { collapsed, toggled, handleToggleSidebar } = props;
     //const { image } = props;
+    const navigate = useNavigate()
     return (
         <>
             <ProSidebar
@@ -82,17 +83,15 @@ const SideBar = (props) => {
                             padding: '20px 24px',
                         }}
                     >
-                        <a
-                            href="https://github.com/azouaoui-med/react-pro-sidebar"
-                            target="_blank"
+                        <span
                             className="sidebar-btn"
-                            rel="noopener noreferrer"
+                            onClick={() => navigate('/')}
                         >
-                            <FaGithub />
+                            <FaHome />
                             <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
 
                             </span>
-                        </a>
+                        </span>
                     </div>
                 </SidebarFooter>
             </ProSidebar >
